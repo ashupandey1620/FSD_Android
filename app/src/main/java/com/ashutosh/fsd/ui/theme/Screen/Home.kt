@@ -182,7 +182,6 @@ fun CompanyOverViewContent(data: CompanyOverViewResponse? , ticker: String?) {
         },
         content = {
 
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()

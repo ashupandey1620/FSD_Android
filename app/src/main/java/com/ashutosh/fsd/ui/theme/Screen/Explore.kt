@@ -88,7 +88,7 @@ fun Explore(navController: NavController , appState: MainState ,
             ),
             title = {
                 Text(
-                    text = "File Syustem Drive",
+                    text = "File System Drive",
                     style = h2TextStyle
                 )
             },

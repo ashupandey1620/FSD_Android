@@ -35,6 +35,12 @@ var h3TextStyle = TextStyle(
 	fontFamily = fontMontserrat,
 	fontWeight = FontWeight.Bold
 )
+var h4TextStyle = TextStyle(
+	fontSize = 14.sp,
+	fontFamily = fontMontserrat,
+	fontWeight = FontWeight.Medium
+)
+
 
 val infoTextStyle = TextStyle(
 	fontSize = 18.sp,
