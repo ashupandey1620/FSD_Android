@@ -4,7 +4,13 @@ enum class Routes {
     Splash,
     MainGraph,
     Explore,
-    Product,
     ProductDetail,
-    News
+    News,
+    Login,
+    Register,
+    ChangePassword,
+    ResetPassword,
+    VerifyOTP,
+    Register2ndScreen,
+
 }

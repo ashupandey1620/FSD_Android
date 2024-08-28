@@ -11,6 +11,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.ashutosh.fsd.Presentation.MainViewModel
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.ChangePassword.ChangePassword
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Register2ndScreen
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterScreen
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.ResetPassword.ResetPassword
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn.SignInScreen
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.VerifyOTP.VerifyOTP
 import com.ashutosh.growappassignment.ui.theme.Screen.Explore
 import com.ashutosh.growappassignment.ui.theme.Screen.Home
 import com.ashutosh.growappassignment.ui.theme.Screen.News
@@ -72,6 +78,58 @@ fun AppNavigation(viewModel: MainViewModel) {
                         viewModel.appState
                     )
                 }
+
+                navigation(
+                    route = "Auth_Graph", startDestination = "signIn_page"
+                ) {
+
+                    composable(Routes.Login.name) {
+                        SignInScreen(
+//                            navController, this@MainActivity
+                        )
+                    }
+                    composable(Routes.Register.name) {
+                        RegisterScreen(
+//                            navController,
+//                            sharedViewModel,
+//                            this@MainActivity
+                        )
+                    }
+
+                    composable(Routes.Register2ndScreen.name) {
+                        Register2ndScreen(
+//                            navController,
+//                            sharedViewModel
+                        )
+                    }
+
+                    composable(Routes.ResetPassword.name) {
+                        ResetPassword(
+//                            navController,
+//                            sharedViewModel2
+                        )
+                    }
+
+                    composable(Routes.ChangePassword.name) {
+                        ChangePassword(
+//                            navController,
+//                            sharedViewModel2
+                        )
+                    }
+
+
+                    composable(Routes.VerifyOTP.name) {
+                        VerifyOTP(
+//                            navController,
+//                            sharedViewModel
+                        )
+                    }
+
+
+
+                }
+
+
 
             }
     }
