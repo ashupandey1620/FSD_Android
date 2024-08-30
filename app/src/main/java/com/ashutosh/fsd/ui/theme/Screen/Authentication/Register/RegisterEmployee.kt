@@ -81,15 +81,15 @@ fun RegisterEmployee(navController: NavHostController) {
         TextFieldFixed(Icons.Filled.Person , "Ashutosh Pandey" , "")
         TextFieldFixed(Icons.Filled.Home , "Kanpur", "")
         TextFieldFixed(Icons.Filled.Phone , "638641582" , "+91-")
-        TextField(Icons.Outlined.Email , "College Roll Number" , "")
-        TextField(Icons.Outlined.Email , "Email" , "")
-        TextField(Icons.Filled.AccountBox , "Course" , "")
+
+        TextField(Icons.Outlined.Email , "Work Type" , "")
+        TextField(Icons.Outlined.Email , "Work Email" , "")
+        TextField(Icons.Filled.AccountBox , "Designation" , "")
+        TextField(Icons.Filled.AccountBox , "Company Name" , "")
 
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(14.dp))
-
-        var selected  = dropdownMenuBranch()
 
         Spacer(modifier = Modifier
             .fillMaxWidth()

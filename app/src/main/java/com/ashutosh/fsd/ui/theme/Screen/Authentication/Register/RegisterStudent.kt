@@ -18,6 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.Email
@@ -78,17 +79,19 @@ fun RegisterStudent(navController: NavHostController) {
         )
 
         TextFieldFixed(Icons.Filled.Person , "Ashutosh Pandey" , "")
-        TextFieldFixed(Icons.Filled.Home , "Kanpur", "")
+        TextFieldFixed(Icons.Filled.LocationOn , "Kanpur", "")
         TextFieldFixed(Icons.Filled.Phone , "638641582" , "+91-")
-        TextField(Icons.Outlined.Email , "College Roll Number" , "")
         TextField(Icons.Outlined.Email , "Email" , "")
         TextField(Icons.Filled.AccountBox , "Course" , "")
-
+        TextField(Icons.Filled.Home , "College" , "")
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(14.dp))
-
         var selected  = dropdownMenuBranch()
+
+
+
+
 
         Spacer(modifier = Modifier
             .fillMaxWidth()

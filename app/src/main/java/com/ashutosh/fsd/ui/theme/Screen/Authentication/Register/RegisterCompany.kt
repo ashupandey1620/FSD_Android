@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.Email
@@ -37,6 +38,8 @@ import androidx.navigation.NavHostController
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.TextField
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.TextFieldFixed
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.dropdownMenuBranch
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.noOfEmployeeDropDown
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.planInterestedDropDown
 import com.ashutosh.fsd.ui.theme.Theme.background
 
 @Composable
@@ -78,18 +81,26 @@ fun RegisterCompany(navController: NavHostController) {
             fontWeight = FontWeight.ExtraBold
         )
 
-        TextFieldFixed(Icons.Filled.Person , "Ashutosh Pandey" , "")
-        TextFieldFixed(Icons.Filled.Home , "Kanpur", "")
+        TextFieldFixed(Icons.Filled.Person , "KodanKing LLC" , "")
+        TextFieldFixed(Icons.Filled.LocationOn , "Kanpur", "")
+        TextFieldFixed(Icons.Filled.Person , "Ashutosh Pandey CEO" , "")
         TextFieldFixed(Icons.Filled.Phone , "638641582" , "+91-")
-        TextField(Icons.Outlined.Email , "College Roll Number" , "")
-        TextField(Icons.Outlined.Email , "Email" , "")
-        TextField(Icons.Filled.AccountBox , "Course" , "")
+
+        TextField(Icons.Outlined.Email , "Company Email" , "")
+        TextField(Icons.Filled.AccountBox , "Company GST Number" , "")
+
+        Spacer(modifier = Modifier
+            .fillMaxWidth()
+            .height(14.dp))
+        var numberOfEmployee  = noOfEmployeeDropDown(value = "Number Of employee")
+
 
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(14.dp))
 
-        var selected  = dropdownMenuBranch()
+        var accountType  = planInterestedDropDown(value = "Plan Interested")
+
 
         Spacer(modifier = Modifier
             .fillMaxWidth()
