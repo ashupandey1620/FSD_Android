@@ -1,5 +1,6 @@
 package com.ashutosh.fsd.ui.theme.Screen.Authentication.Register
 
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
@@ -33,14 +33,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.airbnb.lottie.compose.LottieAnimation
+import androidx.navigation.NavHostController
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.TextField
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.TextFieldFixed
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Component.dropdownMenuBranch
 import com.ashutosh.fsd.ui.theme.Theme.background
 
 @Composable
-fun Register2ndScreen(modifier: Modifier = Modifier) {
+fun RegisterEmployee(navController: NavHostController) {
 
 
     Column(
@@ -56,7 +56,7 @@ fun Register2ndScreen(modifier: Modifier = Modifier) {
 
 
         Text(
-            text = "Your Details" ,
+            text = "Employee Details" ,
             modifier = Modifier
                 .wrapContentWidth()
                 .padding(top = 20.dp)

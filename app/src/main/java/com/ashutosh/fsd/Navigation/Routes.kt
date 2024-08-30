@@ -6,11 +6,19 @@ enum class Routes {
     Explore,
     ProductDetail,
     News,
-    Login,
-    Register,
+
     ChangePassword,
     ResetPassword,
     VerifyOTP,
-    Register2ndScreen,
+
+
+    AuthenticationGraph,
+
+    Login,
+    Register,
+    RegisterStudent,
+    RegisterEmployee,
+    RegisterCompany,
+    RegisterOther
 
 }

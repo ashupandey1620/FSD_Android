@@ -58,7 +58,7 @@ fun Splash(navController: NavHostController , appState: MainState) {
         textVisibility.value = false
         delay(1400)
         navController.popBackStack()
-        navController.navigate(Routes.MainGraph.name)
+        navController.navigate(Routes.AuthenticationGraph.name)
     }
 
 

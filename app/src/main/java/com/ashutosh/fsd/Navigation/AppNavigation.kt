@@ -12,8 +12,12 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.ashutosh.fsd.Presentation.MainViewModel
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.ChangePassword.ChangePassword
-import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.Register2ndScreen
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterCompany
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterEmployee
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterOther
+
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterScreen
+import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterStudent
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.ResetPassword.ResetPassword
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn.SignInScreen
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.VerifyOTP.VerifyOTP
@@ -80,28 +84,49 @@ fun AppNavigation(viewModel: MainViewModel) {
                 }
 
                 navigation(
-                    route = "Auth_Graph", startDestination = "signIn_page"
+                    route = Routes.AuthenticationGraph.name, startDestination = Routes.Login.name
                 ) {
 
                     composable(Routes.Login.name) {
                         SignInScreen(
-//                            navController, this@MainActivity
+                            navController
                         )
                     }
                     composable(Routes.Register.name) {
                         RegisterScreen(
-//                            navController,
-//                            sharedViewModel,
-//                            this@MainActivity
+                            navController
                         )
                     }
 
-                    composable(Routes.Register2ndScreen.name) {
-                        Register2ndScreen(
-//                            navController,
+                    composable(Routes.RegisterStudent.name) {
+                        RegisterStudent(
+                            navController
 //                            sharedViewModel
                         )
                     }
+
+                    composable(Routes.RegisterEmployee.name) {
+                        RegisterEmployee(
+                            navController
+//                            sharedViewModel
+                        )
+                    }
+
+
+                    composable(Routes.RegisterCompany.name) {
+                        RegisterCompany(
+                            navController
+//                            sharedViewModel
+                        )
+                    }
+
+                    composable(Routes.RegisterOther.name) {
+                        RegisterOther(
+                            navController
+//                            sharedViewModel
+                        )
+                    }
+
 
                     composable(Routes.ResetPassword.name) {
                         ResetPassword(

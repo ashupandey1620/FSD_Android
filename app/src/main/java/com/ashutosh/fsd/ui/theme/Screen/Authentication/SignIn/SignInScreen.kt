@@ -1,5 +1,6 @@
 package com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,12 +26,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import com.ashutosh.fsd.Navigation.Routes
 import com.ashutosh.fsd.Presentation.AuthenticationViewModel
 import com.ashutosh.fsd.R
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn.Component.Password
@@ -38,8 +42,8 @@ import com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn.Component.numberTe
 import com.ashutosh.fsd.ui.theme.Theme.background
 
 @Composable
-fun SignInScreen(modifier: Modifier = Modifier) {
-
+fun SignInScreen(navController: NavHostController) {
+    val context = LocalContext.current.applicationContext
     val authVM : AuthenticationViewModel = hiltViewModel()
 
     Column(
@@ -101,9 +105,9 @@ fun SignInScreen(modifier: Modifier = Modifier) {
                     color = Color(0xFFCC9913) ,
                     fontSize = 12.sp ,
                     modifier = Modifier.clickable {
-//                            Toast.makeText(context,"Temporary Blocked",Toast.LENGTH_LONG).show()
-//                        navController.popBackStack()
-//                        navController.navigate("number_taking")
+//                        Toast.makeText(context,"Temporary Blocked",Toast.LENGTH_LONG).show()
+                        navController.popBackStack()
+                        navController.navigate(Routes.ResetPassword.name)
                     })
             }
 
@@ -121,14 +125,6 @@ fun SignInScreen(modifier: Modifier = Modifier) {
                             ) ,
                     onClick = {
 
-//                        authVM.loadingState = true
-//
-//                        val loginPost = LoginRequest(
-//                            authVM.phoneNo ,
-//                            authVM.password
-//                        )
-//
-//                        authVM.loginUser(loginPost)
 
                     } ,
                     colors = ButtonDefaults.buttonColors(
@@ -145,34 +141,11 @@ fun SignInScreen(modifier: Modifier = Modifier) {
                         bottomStart = 10.dp
                     )
                 ) {
-
-//                    AnimatedVisibility(
-//                        visible = ! authVM.loadingState ,
-//                        enter = fadeIn() ,
-//                        exit = fadeOut()
-//                    ) {
-//
-//                        Text(
-//                            text = "Sign In" , color = Color.White ,
-//                            fontSize = 20.sp ,
-//                            modifier = Modifier.padding(8.dp)
-//                        )
-//
-//                    }
-//
-//                    AnimatedVisibility(
-//                        visible =  authVM.loadingState  ,
-//                        enter = fadeIn() ,
-//                        exit = fadeOut()
-//                    ) {
-//
-//                        LottieAnimation(
-//                            modifier = Modifier.size(40.dp) ,
-//                            composition = composition ,
-//                            progress = { progress })
-//
-//                    }
-
+                        Text(
+                            text = "Sign In" , color = Color.White ,
+                            fontSize = 20.sp ,
+                            modifier = Modifier.padding(8.dp)
+                        )
                 }
             }
 
@@ -197,9 +170,9 @@ fun SignInScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .padding(start = 5.dp)
                             .clickable {
-//                            navController.popBackStack()
-//                                navController.navigate("signup_page")
-//                                    Toast.makeText(context,"Temporary Blocked",Toast.LENGTH_LONG).show()
+                                navController.popBackStack()
+                                navController.navigate(Routes.Register.name)
+//                                Toast.makeText(context,"Temporary Blocked",Toast.LENGTH_LONG).show()
                             })
                 }
             }

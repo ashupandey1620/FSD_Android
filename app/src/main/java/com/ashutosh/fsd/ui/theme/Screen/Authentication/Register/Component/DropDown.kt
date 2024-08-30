@@ -26,8 +26,6 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun dropdownMenu(value: String):String {
 
-
-
 //    val sharedViewModel:SharedViewModel = hiltViewModel()
 
 
@@ -36,7 +34,11 @@ fun dropdownMenu(value: String):String {
         mutableStateOf(false)
     }
 
-    var college by remember {
+    var type  by remember {
+        mutableStateOf(value)
+    }
+
+    var typeToReturn by remember {
         mutableStateOf(value)
     }
 
@@ -50,7 +52,7 @@ fun dropdownMenu(value: String):String {
     ) {
         val containerColor = Color(0xFF222222)
         OutlinedTextField(
-            value = college,
+            value = type ,
             onValueChange = {},
             readOnly = true,
 
@@ -87,19 +89,31 @@ fun dropdownMenu(value: String):String {
         ) {
             DropdownMenuItem(
                 text = {
-                    Text(text = "PSIT")
+                    Text(text = "Student")
                 },
                 onClick = {
-                    college = "Pranveer Singh Institute Of Technology"
+                    type = "Student Account"
+                    typeToReturn = "Student"
                     isExpanded = false
                 }
             )
             DropdownMenuItem(
                 text = {
-                    Text(text = "PSIT CHE")
+                    Text(text = "Employee")
                 },
                 onClick = {
-                    college = "PSIT College of Higher Education"
+                    type = "Employee Account"
+                    typeToReturn = "Employee"
+                    isExpanded = false
+                }
+            )
+            DropdownMenuItem(
+                text = {
+                    Text(text = "Company")
+                },
+                onClick = {
+                    type = "Company Account"
+                    typeToReturn = "Company"
                     isExpanded = false
                 }
             )
@@ -108,12 +122,13 @@ fun dropdownMenu(value: String):String {
                     Text(text = "Others")
                 },
                 onClick = {
-                    college = "Others"
+                    type = "Others"
+                    typeToReturn = "Others"
                     isExpanded = false
                 }
             )
 
         }
     }
-    return college
+    return typeToReturn
 }

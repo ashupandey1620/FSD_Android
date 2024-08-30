@@ -16,7 +16,7 @@ class AuthenticationViewModel @Inject constructor(private val repository: Reposi
 
 
     var name by mutableStateOf("")
-    var college by mutableStateOf("")
+    var typeRegister by mutableStateOf("")
     var phone by mutableStateOf("")
     var isVerified by mutableStateOf(true)
 
