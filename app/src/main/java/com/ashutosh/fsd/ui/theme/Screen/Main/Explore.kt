@@ -33,7 +33,7 @@ import com.ashutosh.fsd.ui.theme.Theme.MainState
 import com.ashutosh.fsd.ui.theme.Theme.h2TextStyle
 import com.ashutosh.growappassignment.ui.theme.Component.NavigationDrawerComponent
 import com.ashutosh.growappassignment.ui.theme.Component.Tabs.TopGainer
-import com.ashutosh.growappassignment.ui.theme.Component.Tabs.TopLoser
+
 import kotlinx.coroutines.launch
 
 
@@ -102,10 +102,7 @@ fun Explore(navController: NavController , appState: MainState ,
 
             if(selectedIndex==0){
                 TopGainer(navController)
-            }else{
-                TopLoser(navController)
             }
-
         }
     )
     }
