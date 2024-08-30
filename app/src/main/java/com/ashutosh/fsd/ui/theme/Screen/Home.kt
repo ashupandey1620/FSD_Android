@@ -104,63 +104,10 @@ fun Home(
 
 }
 
-@Composable
-fun ErrorScreen(message: String) {
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie3))
-    val progress by animateLottieCompositionAsState(composition = composition, restartOnPlay = true,
-        iterations = LottieConstants.IterateForever)
 
 
-    Box(modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center)
-    {
-
-        LottieAnimation(
-            modifier = Modifier.size(200.dp),
-            composition = composition,
-            progress = {progress})
-
-    }
-}
-
-@Composable
-fun NetworkErrorScreen() {
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie1))
-    val progress by animateLottieCompositionAsState(composition = composition, restartOnPlay = true,
-        iterations = LottieConstants.IterateForever)
 
 
-    Box(modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center)
-    {
-
-        LottieAnimation(
-            modifier = Modifier.size(200.dp),
-            composition = composition,
-            progress = {progress})
-
-    }
-}
-
-@Composable
-fun LoadingScreen() {
-
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie2))
-    val progress by animateLottieCompositionAsState(composition = composition, restartOnPlay = true,
-        iterations = LottieConstants.IterateForever)
-
-
-    Box(modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center)
-    {
-
-        LottieAnimation(
-            modifier = Modifier.size(200.dp),
-            composition = composition,
-            progress = {progress})
-
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class , ExperimentalLayoutApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

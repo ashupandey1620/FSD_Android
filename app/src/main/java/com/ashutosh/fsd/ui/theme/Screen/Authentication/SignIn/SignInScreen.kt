@@ -105,13 +105,11 @@ fun SignInScreen(navController: NavHostController) {
                     color = Color(0xFFCC9913) ,
                     fontSize = 12.sp ,
                     modifier = Modifier.clickable {
-//                        Toast.makeText(context,"Temporary Blocked",Toast.LENGTH_LONG).show()
                         navController.popBackStack()
                         navController.navigate(Routes.ResetPassword.name)
                     })
             }
 
-//            Spacer(modifier = Modifier.padding(25.dp))
 
             Row(
                 modifier = Modifier
@@ -120,12 +118,14 @@ fun SignInScreen(navController: NavHostController) {
             ) {
 
                 Button(
-                    enabled = ((authVM.phoneNo.isNotEmpty()
-                            && authVM.password.isNotEmpty())
-                            ) ,
+                    enabled = true
+//                    ((authVM.phoneNo.isNotEmpty()
+//                            && authVM.password.isNotEmpty())
+//                            )
+                    ,
                     onClick = {
-
-
+                        navController.popBackStack()
+                        navController.navigate(Routes.Explore.name)
                     } ,
                     colors = ButtonDefaults.buttonColors(
                         Color(0xFFCC9913) ,
@@ -172,7 +172,6 @@ fun SignInScreen(navController: NavHostController) {
                             .clickable {
                                 navController.popBackStack()
                                 navController.navigate(Routes.Register.name)
-//                                Toast.makeText(context,"Temporary Blocked",Toast.LENGTH_LONG).show()
                             })
                 }
             }

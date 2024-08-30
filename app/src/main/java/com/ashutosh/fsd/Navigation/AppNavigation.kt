@@ -23,9 +23,6 @@ import com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn.SignInScreen
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.VerifyOTP.VerifyOTP
 import com.ashutosh.growappassignment.ui.theme.Screen.Explore
 import com.ashutosh.growappassignment.ui.theme.Screen.Home
-import com.ashutosh.growappassignment.ui.theme.Screen.News
-
-import com.ashutosh.growappassignment.ui.theme.Screen.ProductDetail
 import com.ashutosh.growappassignment.ui.theme.Screen.Splash
 
 
@@ -70,18 +67,7 @@ fun AppNavigation(viewModel: MainViewModel) {
                         viewModel.appState
                     )
                 }
-                composable(Routes.ProductDetail.name) {
-                    ProductDetail(
-                        navController,
-                        viewModel.appState
-                    )
-                }
-                composable(Routes.News.name) {
-                    News(
-                        navController,
-                        viewModel.appState
-                    )
-                }
+
 
                 navigation(
                     route = Routes.AuthenticationGraph.name, startDestination = Routes.Login.name

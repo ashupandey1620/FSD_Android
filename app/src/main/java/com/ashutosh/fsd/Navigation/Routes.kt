@@ -2,23 +2,29 @@ package com.ashutosh.fsd.Navigation
 
 enum class Routes {
     Splash,
-    MainGraph,
-    Explore,
-    ProductDetail,
-    News,
-
-    ChangePassword,
-    ResetPassword,
-    VerifyOTP,
-
+    OnBoarding,
 
     AuthenticationGraph,
-
     Login,
     Register,
     RegisterStudent,
     RegisterEmployee,
     RegisterCompany,
-    RegisterOther
+    RegisterOther,
+    ChangePassword,
+    ResetPassword,
+    VerifyOTP,
+
+    MainGraph,
+    Explore,
+    Recent,
+    Offline,
+    Collections,
+    Backups,
+    Trash,
+    Settings,
+    Storage,
+    BuyMoreStorage
+
 
 }

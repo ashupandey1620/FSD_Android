@@ -1,11 +1,7 @@
 package com.ashutosh.growappassignment.ui.theme.Screen
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Menu
@@ -17,8 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -30,23 +24,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ashutosh.fsd.ui.theme.FSDTheme
 import com.ashutosh.fsd.ui.theme.Theme.MainEvent
 import com.ashutosh.fsd.ui.theme.Theme.MainState
-import com.ashutosh.fsd.ui.theme.Theme.h1TextStyle
 import com.ashutosh.fsd.ui.theme.Theme.h2TextStyle
 import com.ashutosh.growappassignment.ui.theme.Component.NavigationDrawerComponent
 import com.ashutosh.growappassignment.ui.theme.Component.Tabs.TopGainer
 import com.ashutosh.growappassignment.ui.theme.Component.Tabs.TopLoser
-import com.ashutosh.growappassignment.ui.theme.Component.Tabs.tabs
 import kotlinx.coroutines.launch
 
 
@@ -101,65 +88,14 @@ fun Explore(navController: NavController , appState: MainState ,
                     }
                 }) {
                     Icon(
-                        imageVector = Icons.Default.MailOutline,
+                        imageVector = Icons.Default.Menu,
                         contentDescription = null
                     )
                 }
             })
         } ,
         bottomBar = {
-            TabRow(selectedTabIndex = selectedIndex ,
-                modifier = Modifier.fillMaxWidth()
-                ,
-                containerColor = MaterialTheme.colorScheme.background,
-                contentColor = Color.Blue ,
-                indicator = {} ,
-                divider = {}
-            ) {
-                tabs.forEachIndexed { index , tabData ->
-                    if (index == selectedIndex) {
-                        Tab(
-                            selected = index == selectedIndex ,
-                            onClick = { selectedIndex = index } ,
-                            text = {
-                                Text(
-                                    text = tabData.title ,
-                                    style = TextStyle(fontSize = 14.sp,
-                                        fontWeight = FontWeight.Bold)
-                                )
-                            } ,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(12.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color(0xFFffd700)) ,
-                            selectedContentColor = MaterialTheme.colorScheme.onPrimary ,
-                            unselectedContentColor = MaterialTheme.colorScheme.onSecondary
 
-                        )
-                    } else {
-                        Tab(
-                            selected = index == selectedIndex ,
-                            onClick = { selectedIndex = index } ,
-                            text = {
-                                Text(
-                                    text = tabData.title ,
-                                    style = TextStyle(fontSize = 14.sp,
-                                        fontWeight = FontWeight.Medium)
-                                )
-                            } ,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(15.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color(0xFFfbd137)) ,
-                            selectedContentColor = Color.Black ,
-                            unselectedContentColor = Color.Black
-
-                        )
-                    }
-                }
-            }
 
         },
         content = {
