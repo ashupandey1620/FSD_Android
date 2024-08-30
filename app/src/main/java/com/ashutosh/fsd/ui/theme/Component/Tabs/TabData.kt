@@ -5,11 +5,11 @@ data class TabData (
 )
 
 val tabs = listOf(
-    TabData(Tabs.Gainers.value) ,
-    TabData(Tabs.Losers.value)
+    TabData(Tabs.MyDrive.value) ,
+    TabData(Tabs.Mobile.value)
 )
 
 enum class Tabs (val value:String){
-    Gainers("Top Gainers"),
-    Losers("Top Losers")
+    MyDrive("My Drive"),
+    Mobile("Mobile")
 }

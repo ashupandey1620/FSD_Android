@@ -33,7 +33,7 @@ fun CardFolderLayout(
 
         Box(modifier = Modifier
             .width(180.dp)
-            .height(140.dp) ,
+            .height(160.dp) ,
             contentAlignment = Alignment.BottomEnd) {
             Image(
                 painter = painterResource(id = icon) ,
@@ -44,8 +44,8 @@ fun CardFolderLayout(
                 contentScale = ContentScale.Crop
             )
             Column(modifier = Modifier
-                .padding(10.dp)
-                .padding(15.dp)
+                .padding(bottom = 10.dp)
+                .padding(25.dp)
                 .size(35.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center) {
@@ -73,7 +73,7 @@ fun TeamItemPreview() {
     FSDTheme {
 
         CardFolderLayout(
-            R.drawable.folder2,
+            R.drawable.folder,
             "Apple, Inc. (APPL)" ,
             "177.15" ,
             "0.88",

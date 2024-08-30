@@ -3,24 +3,38 @@ package com.ashutosh.growappassignment.ui.theme.Component.Tabs
 import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ashutosh.fsd.Presentation.ExploreViewModel
@@ -44,26 +58,26 @@ fun TopGainer(navController: NavController) {
     val context = LocalContext.current
 
     val itemsList = listOf(
-        SupportCardList(icon = R.drawable.folder2, name = "Item 1", price = "$100", perc = "+5%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 2", price = "$200", perc = "+3%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 3", price = "$150", perc = "-2%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 4", price = "$120", perc = "+7%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 5", price = "$180", perc = "-1%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 6", price = "$220", perc = "+4%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 7", price = "$140", perc = "+2%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 8", price = "$160", perc = "-3%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 9", price = "$130", perc = "+6%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 10", price = "$170", perc = "+1%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 1", price = "$100", perc = "+5%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 2", price = "$200", perc = "+3%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 3", price = "$150", perc = "-2%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 4", price = "$120", perc = "+7%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 5", price = "$180", perc = "-1%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 6", price = "$220", perc = "+4%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 7", price = "$140", perc = "+2%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 8", price = "$160", perc = "-3%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 9", price = "$130", perc = "+6%"),
-        SupportCardList(icon = R.drawable.folder2, name = "Item 10", price = "$170", perc = "+1%")
+        SupportCardList(icon = R.drawable.folder, name = "Item 1", price = "$100", perc = "+5%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 2", price = "$200", perc = "+3%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 3", price = "$150", perc = "-2%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 4", price = "$120", perc = "+7%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 5", price = "$180", perc = "-1%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 6", price = "$220", perc = "+4%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 7", price = "$140", perc = "+2%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 8", price = "$160", perc = "-3%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 9", price = "$130", perc = "+6%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 10", price = "$170", perc = "+1%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 1", price = "$100", perc = "+5%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 2", price = "$200", perc = "+3%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 3", price = "$150", perc = "-2%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 4", price = "$120", perc = "+7%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 5", price = "$180", perc = "-1%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 6", price = "$220", perc = "+4%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 7", price = "$140", perc = "+2%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 8", price = "$160", perc = "-3%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 9", price = "$130", perc = "+6%"),
+        SupportCardList(icon = R.drawable.folder, name = "Item 10", price = "$170", perc = "+1%")
     )
 
     val ItemsList = remember {
@@ -82,8 +96,58 @@ fun TopGainer(navController: NavController) {
                 Spacer(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(50.dp)
+                        .height(70.dp)
                 )
+
+                Row(modifier = Modifier.fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(horizontal = 15.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween) {
+
+                    Row(modifier = Modifier.wrapContentWidth()
+                        .wrapContentHeight() ,
+                        horizontalArrangement = Arrangement.Start,
+                        verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "Name" ,
+                            color = Color(0xFFF6F6F6) ,
+                            fontSize = 14.sp
+                        )
+
+                        Icon(
+                            imageVector = Icons.Default.KeyboardArrowUp ,
+                            contentDescription = "Sorting" ,
+                            tint = Color(0xFFA7A7A7) ,
+                            modifier = Modifier
+                                .size(30.dp)
+                                .clickable {
+
+                                }
+                        )
+                    }
+
+
+                    Icon(
+                        imageVector = Icons.Filled.List ,
+                        contentDescription = "Sorting" ,
+                        tint = Color(0xFFA7A7A7) ,
+                        modifier = Modifier
+                            .size(30.dp)
+                            .clickable {
+
+                            }
+                    )
+
+                }
+
+//
+//                Spacer(
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .height(20.dp)
+//                )
+
+
 
                 if (ItemsList.value != null && ItemsList.value!!.isNotEmpty()) {
 
