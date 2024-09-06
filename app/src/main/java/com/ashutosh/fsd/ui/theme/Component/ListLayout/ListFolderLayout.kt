@@ -43,7 +43,7 @@ fun ListFolderLayout(
     onClick: () -> Unit
 ) {
 
-        val authVM : ExploreViewModel = hiltViewModel()
+        val exploreVM : ExploreViewModel = hiltViewModel()
 
 
         Row(modifier = Modifier
@@ -58,7 +58,7 @@ fun ListFolderLayout(
                 painter = painterResource(id = icon) ,
                 contentDescription = null ,
                 modifier = Modifier
-                    .fillMaxWidth(0.15f)
+                    .fillMaxWidth(0.10f)
                     .size(30.dp) ,
             )
 
@@ -83,6 +83,14 @@ fun ListFolderLayout(
                     softWrap = true ,
                     overflow = TextOverflow.Ellipsis
                 )
+                Text(
+                    text = "modified on $modifiedDate" ,
+                    color = Color.Gray ,
+                    fontSize = 14.sp ,
+                    maxLines = 1 ,
+                    softWrap = true ,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
 
             Icon(
@@ -91,7 +99,7 @@ fun ListFolderLayout(
                     .padding(vertical = 5.dp)
                     .size(30.dp)
                     .clickable {
-                        authVM.isOpenFolderClick = !authVM.isOpenFolderClick
+                        exploreVM.isOpenFolderClick = !exploreVM.isOpenFolderClick
                     },
                 imageVector = Icons.Filled.MoreVert , contentDescription = "icon" ,
                 tint = Color.White

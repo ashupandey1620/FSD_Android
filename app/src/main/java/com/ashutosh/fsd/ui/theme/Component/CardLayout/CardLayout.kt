@@ -32,6 +32,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.ashutosh.fsd.Presentation.ExploreViewModel
 import com.ashutosh.fsd.R
 import com.ashutosh.fsd.ui.theme.FSDTheme
 
@@ -46,6 +48,11 @@ fun CardFolderLayout(
     onClick: () -> Unit
 ) {
 
+
+    val exploreVM : ExploreViewModel = hiltViewModel()
+
+
+
     Column (modifier = Modifier
         .padding(10.dp)
         .width(180.dp)
@@ -57,33 +64,52 @@ fun CardFolderLayout(
         ){
 
 
-        Row(modifier = Modifier.fillMaxWidth()
+
+
+        Row(modifier = Modifier
+            .fillMaxWidth()
             .wrapContentHeight(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(
-                modifier = Modifier.fillMaxWidth(0.75f)
-                    .padding(vertical = 5.dp)
-                    .padding(horizontal = 10.dp),
-                text = name ,
-                color = Color(0xFFF6F6F6) ,
-                fontSize = 16.sp,
-                maxLines = 1,
-                softWrap = true,
-                overflow = TextOverflow.Ellipsis
-            )
+
+            Column ( modifier = Modifier
+                .fillMaxWidth(0.75f)
+                .padding(vertical = 5.dp)
+                .padding(horizontal = 10.dp)){
+                Text(
+                    text = name ,
+                    color = Color(0xFFF6F6F6) ,
+                    fontSize = 16.sp ,
+                    maxLines = 1 ,
+                    softWrap = true ,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+                Text(
+                    text = description ,
+                    color = Color(0xFFF6F6F6) ,
+                    fontSize = 14.sp ,
+                    maxLines = 1 ,
+                    softWrap = true ,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
 
             Icon(
-                modifier = Modifier.padding(horizontal = 10.dp)
+                modifier = Modifier
+                    .padding(horizontal = 10.dp)
                     .padding(vertical = 5.dp)
-                    .size(30.dp),
+                    .size(30.dp)
+                    .clickable {
+                        exploreVM.isOpenFolderClick = !exploreVM.isOpenFolderClick
+                    },
                 imageVector = Icons.Filled.MoreVert, contentDescription = "icon",
                 tint = Color.White)
 
         }
 
         Box(
-            contentAlignment = Alignment.BottomEnd,
+            contentAlignment = Alignment.BottomStart,
             modifier = Modifier.padding(45.dp,20.dp)
         ) {
             Icon(
@@ -95,7 +121,7 @@ fun CardFolderLayout(
             Column(
                 modifier = Modifier
                     .padding(bottom = 18.dp)
-                    .padding(end = 5.dp)
+                    .padding(start = 18.dp)
                     .size(30.dp) ,
                 horizontalAlignment = Alignment.CenterHorizontally ,
                 verticalArrangement = Arrangement.Center

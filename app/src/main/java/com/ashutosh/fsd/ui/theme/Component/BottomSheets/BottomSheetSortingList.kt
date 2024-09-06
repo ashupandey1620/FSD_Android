@@ -11,6 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.ashutosh.fsd.ui.theme.Component.BottomSheets.Components.FolderClickItems
 import com.ashutosh.fsd.ui.theme.Component.BottomSheets.Components.SortingListItems
 import kotlinx.coroutines.launch
 
@@ -25,9 +26,9 @@ fun BottomSheetSortingList(onDismiss: () -> Unit , modalBottomSheetState: SheetS
                            },
         sheetState = modalBottomSheetState,
         dragHandle = { BottomSheetDefaults.DragHandle() },
-        containerColor = Color.Transparent,
+        containerColor = Color.White,
         scrimColor = Color.Transparent
     ) {
-        SortingListItems()
+        FolderClickItems()
     }
 }

@@ -96,7 +96,7 @@ fun CardFolderPage(navController: NavController) {
                 if (ItemsList.value != null && ItemsList.value!!.isNotEmpty()) {
 
                     LazyVerticalGrid(
-                        columns = GridCells.Fixed(2) ,
+                        columns = GridCells.Adaptive(180.dp) ,
                         modifier = Modifier
                             .fillMaxSize() ,
                         userScrollEnabled = true ,

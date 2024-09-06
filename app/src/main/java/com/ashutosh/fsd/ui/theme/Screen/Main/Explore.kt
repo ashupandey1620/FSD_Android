@@ -200,7 +200,7 @@ fun Explore(navController: NavController , appState: MainState ,
                                     Toast
                                         .makeText(
                                             context ,
-                                            "Show List Value is ${showListView}" ,
+                                            "Show List Value is $showListView" ,
                                             Toast.LENGTH_SHORT
                                         )
                                         .show()
@@ -220,7 +220,7 @@ fun Explore(navController: NavController , appState: MainState ,
                 if (showBottomSheet) {
                     LaunchedEffect(Unit) {
                         coroutineScope.launch {
-                            modalBottomSheetState.show() // Show the bottom sheet
+                            modalBottomSheetState.show()
                         }
                     }
 
@@ -228,8 +228,8 @@ fun Explore(navController: NavController , appState: MainState ,
                         onDismiss = {
                             coroutineScope.launch {
                                 exploreVM.isOpenFolderClick = false
-                                modalBottomSheetState.hide() // Hide the bottom sheet
-                                showBottomSheet = false // Close the sheet
+                                modalBottomSheetState.hide()
+                                showBottomSheet = false
                             }
                         },
                         modalBottomSheetState
