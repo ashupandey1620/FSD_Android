@@ -40,10 +40,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.ashutosh.fsd.R
 import com.ashutosh.fsd.ui.theme.FSDTheme
 import com.ashutosh.fsd.ui.theme.Theme.MainEvent
 import com.ashutosh.fsd.ui.theme.Theme.MainState
@@ -152,24 +154,45 @@ fun Explore(navController: NavController , appState: MainState ,
                         )
                     }
 
-
-                    Icon(
-                        imageVector = Icons.Filled.List ,
-                        contentDescription = "Sorting" ,
-                        tint = Color(0xFFA7A7A7) ,
-                        modifier = Modifier
-                            .size(30.dp)
-                            .clickable {
-                                showListView = !showListView
-                                Toast
-                                    .makeText(
-                                        context ,
-                                        "Show List Value is ${showListView}" ,
-                                        Toast.LENGTH_SHORT
-                                    )
-                                    .show()
-                            }
-                    )
+                    if(showListView) {
+                        Icon(
+                            imageVector = Icons.Filled.List ,
+                            contentDescription = "Sorting" ,
+                            tint = Color(0xFFA7A7A7) ,
+                            modifier = Modifier
+                                .size(30.dp)
+                                .clickable {
+                                    showListView = !showListView
+                                    Toast
+                                        .makeText(
+                                            context ,
+                                            "Show List Value is ${showListView}" ,
+                                            Toast.LENGTH_SHORT
+                                        )
+                                        .show()
+                                }
+                        )
+                    }
+                    else{
+                        Icon(
+                            painter = painterResource(id = R.drawable.grid) ,
+                            contentDescription = "Sorting" ,
+                            tint = Color(0xFFA7A7A7) ,
+                            modifier = Modifier
+                                .padding(5.dp)
+                                .size(20.dp)
+                                .clickable {
+                                    showListView = !showListView
+                                    Toast
+                                        .makeText(
+                                            context ,
+                                            "Show List Value is ${showListView}" ,
+                                            Toast.LENGTH_SHORT
+                                        )
+                                        .show()
+                                }
+                        )
+                    }
 
                 }
 
