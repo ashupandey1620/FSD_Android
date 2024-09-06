@@ -18,6 +18,8 @@ class MainViewModel @Inject constructor(private val repository: Repository): Vie
 
     var appState by mutableStateOf(MainState())
 
+
+
 //    private val cODao = StockApp.database.companyOverViewDao()
 //
 //    var symbol by mutableStateOf("")

@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,7 +29,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -44,8 +45,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.ashutosh.fsd.Presentation.ExploreViewModel
 import com.ashutosh.fsd.R
+import com.ashutosh.fsd.ui.theme.Component.BottomSheets.BottomSheetSortingList
 import com.ashutosh.fsd.ui.theme.FSDTheme
 import com.ashutosh.fsd.ui.theme.Theme.MainEvent
 import com.ashutosh.fsd.ui.theme.Theme.MainState
@@ -64,14 +68,24 @@ import kotlinx.coroutines.launch
 fun Explore(navController: NavController , appState: MainState ,
             onMainEvent: (MainEvent) -> Unit) {
 
+    val exploreVM : ExploreViewModel = hiltViewModel()
 
     var showListView by remember {
         mutableStateOf(false)
     }
 
+    val modalBottomSheetState = rememberModalBottomSheetState()
+    val coroutineScope = rememberCoroutineScope()
+    var showBottomSheet by remember { mutableStateOf(false) }
+
+    LaunchedEffect(key1 = exploreVM.isOpenFolderClick) {
+        showBottomSheet = exploreVM.isOpenFolderClick
+    }
+
     val context = LocalContext.current.applicationContext
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+
 
 
     ModalNavigationDrawer(
@@ -202,10 +216,31 @@ fun Explore(navController: NavController , appState: MainState ,
                 } else {
                     ListFolderPage(navController)
                 }
+
+                if (showBottomSheet) {
+                    LaunchedEffect(Unit) {
+                        coroutineScope.launch {
+                            modalBottomSheetState.show() // Show the bottom sheet
+                        }
+                    }
+
+                    BottomSheetSortingList(
+                        onDismiss = {
+                            coroutineScope.launch {
+                                exploreVM.isOpenFolderClick = false
+                                modalBottomSheetState.hide() // Hide the bottom sheet
+                                showBottomSheet = false // Close the sheet
+                            }
+                        },
+                        modalBottomSheetState
+                    )
+                }
             }
         }
     )
     }
+
+
 }
 
 

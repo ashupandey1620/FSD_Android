@@ -1,6 +1,9 @@
 package com.ashutosh.fsd.Presentation
 
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.ashutosh.fsd.Data.Repository
 import com.ashutosh.fsd.R
@@ -18,6 +21,8 @@ class ExploreViewModel @Inject constructor(private val repository: Repository): 
         R.drawable.netflix,
         R.drawable.tesla,
     )
+
+    var isOpenFolderClick by mutableStateOf(false)
 
 //    private val topGainerDao = StockApp.database.topGainerDao()
 //    private val topLoserDao = StockApp.database.topLoserDao()

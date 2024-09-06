@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -50,7 +51,7 @@ fun CardFolderLayout(
         .width(180.dp)
         .height(160.dp)
         .clip(RoundedCornerShape(15.dp))
-        .background(Color.Gray)
+        .background(Color.Gray.copy(0.3f))
        ,
         verticalArrangement = Arrangement.Top,
         ){
