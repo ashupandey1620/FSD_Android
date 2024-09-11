@@ -14,10 +14,6 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,10 +23,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.ashutosh.fsd.Presentation.AuthenticationViewModel
+import androidx.navigation.NavController
+import com.ashutosh.fsd.Navigation.Routes
 import com.ashutosh.fsd.Presentation.ExploreViewModel
 import com.ashutosh.fsd.R
-import com.ashutosh.fsd.ui.theme.Component.BottomSheets.BottomSheetSortingList
 import com.ashutosh.fsd.ui.theme.FSDTheme
 
 
@@ -40,6 +36,7 @@ fun ListFolderLayout(
     name: String ,
     description: String ,
     modifiedDate: String ,
+    navController: NavController ,
     onClick: () -> Unit
 ) {
 
@@ -49,7 +46,10 @@ fun ListFolderLayout(
         Row(modifier = Modifier
             .padding(vertical = 5.dp)
             .fillMaxWidth()
-            .wrapContentHeight(),
+            .wrapContentHeight()
+            .clickable {
+                navController.navigate(Routes.FolderInside.name)
+            },
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween) {
 
@@ -117,15 +117,15 @@ fun ListFolderLayout(
 @Preview()
 @Composable
 fun ListItemPreview() {
-    FSDTheme {
-
-        ListFolderLayout(
-            R.drawable.folder,
-            "Apple, Inc. (APPL)" ,
-            "177.15" ,
-            "0.88",
-            {}
-        )
-    }
+//    FSDTheme {
+//
+//        ListFolderLayout(
+//            R.drawable.folder ,
+//            "Apple, Inc. (APPL)" ,
+//            "177.15" ,
+//            "0.88" ,
+////            navController
+//        ) {}
+//    }
 
 }

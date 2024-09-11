@@ -71,7 +71,7 @@ fun Explore(navController: NavController , appState: MainState ,
     val exploreVM : ExploreViewModel = hiltViewModel()
 
     var showListView by remember {
-        mutableStateOf(false)
+        mutableStateOf(exploreVM.isList)
     }
 
     val modalBottomSheetState = rememberModalBottomSheetState()
@@ -177,6 +177,7 @@ fun Explore(navController: NavController , appState: MainState ,
                                 .size(30.dp)
                                 .clickable {
                                     showListView = !showListView
+                                    exploreVM.isList = exploreVM.isList
                                     Toast
                                         .makeText(
                                             context ,
@@ -197,6 +198,7 @@ fun Explore(navController: NavController , appState: MainState ,
                                 .size(20.dp)
                                 .clickable {
                                     showListView = !showListView
+                                    exploreVM.isList = !exploreVM.isList
                                     Toast
                                         .makeText(
                                             context ,

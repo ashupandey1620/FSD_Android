@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
@@ -23,7 +22,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -33,6 +31,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.ashutosh.fsd.Navigation.Routes
 import com.ashutosh.fsd.Presentation.ExploreViewModel
 import com.ashutosh.fsd.R
 import com.ashutosh.fsd.ui.theme.FSDTheme
@@ -44,7 +44,7 @@ fun CardFolderLayout(
     name: String ,
     description: String ,
     modifiedDate: String ,
-//    navController: NavController ,
+    navController: NavController ,
     onClick: () -> Unit
 ) {
 
@@ -59,6 +59,9 @@ fun CardFolderLayout(
         .height(160.dp)
         .clip(RoundedCornerShape(15.dp))
         .background(Color.Gray.copy(0.3f))
+        .clickable {
+            navController.navigate(Routes.FolderInside.name)
+        }
        ,
         verticalArrangement = Arrangement.Top,
         ){
@@ -148,15 +151,15 @@ fun CardFolderLayout(
 @Preview()
 @Composable
 fun TeamItemPreview() {
-    FSDTheme {
-
-        CardFolderLayout(
-            R.drawable.folder,
-            "Apple, Inc. (APPL)" ,
-            "177.15" ,
-            "0.88",
-            {}
-        )
-    }
+//    FSDTheme {
+//
+//        CardFolderLayout(
+//            R.drawable.folder ,
+//            "Apple, Inc. (APPL)" ,
+//            "177.15" ,
+//            "0.88" ,
+////            navController
+//        ) {}
+//    }
 
 }

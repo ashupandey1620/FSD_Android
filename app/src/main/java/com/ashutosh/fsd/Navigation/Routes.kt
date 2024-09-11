@@ -17,6 +17,7 @@ enum class Routes {
 
     MainGraph,
     Explore,
+    FolderInside,
     Recent,
     Offline,
     Collections,

@@ -21,6 +21,7 @@ import com.ashutosh.fsd.ui.theme.Screen.Authentication.Register.RegisterStudent
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.ResetPassword.ResetPassword
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.SignIn.SignInScreen
 import com.ashutosh.fsd.ui.theme.Screen.Authentication.VerifyOTP.VerifyOTP
+import com.ashutosh.fsd.ui.theme.Screen.Main.FolderInside
 import com.ashutosh.growappassignment.ui.theme.Screen.Explore
 import com.ashutosh.growappassignment.ui.theme.Screen.Home
 import com.ashutosh.growappassignment.ui.theme.Screen.Splash
@@ -136,7 +137,11 @@ fun AppNavigation(viewModel: MainViewModel) {
                         )
                     }
 
-
+                    composable(Routes.FolderInside.name) {
+                        FolderInside(
+                            navController
+                        )
+                    }
 
                 }
 

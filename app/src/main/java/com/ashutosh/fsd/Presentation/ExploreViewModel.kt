@@ -23,6 +23,7 @@ class ExploreViewModel @Inject constructor(private val repository: Repository): 
     )
 
     var isOpenFolderClick by mutableStateOf(false)
+    var isList by mutableStateOf(true)
 
 //    private val topGainerDao = StockApp.database.topGainerDao()
 //    private val topLoserDao = StockApp.database.topLoserDao()

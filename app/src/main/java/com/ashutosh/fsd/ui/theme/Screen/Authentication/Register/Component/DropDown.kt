@@ -9,6 +9,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,7 +51,7 @@ fun dropdownMenu(value: String):String {
         },
         modifier = Modifier.fillMaxWidth()
     ) {
-        val containerColor = Color(0xFF222222)
+        val containerColor = MaterialTheme.colorScheme.secondary
         OutlinedTextField(
             value = type ,
             onValueChange = {},

@@ -26,10 +26,6 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun noOfEmployeeDropDown(value: String):String {
 
-//    val sharedViewModel:SharedViewModel = hiltViewModel()
-
-
-
     var isExpanded by remember {
         mutableStateOf(false)
     }

@@ -7,6 +7,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -30,7 +31,7 @@ fun numberTextField(icon: ImageVector , plText: String , prefixText : String): S
     var text by rememberSaveable { mutableStateOf("") }
 
 
-    val containerColor = Color(0xFF222222)
+    val containerColor = MaterialTheme.colorScheme.secondary
     OutlinedTextField(
 
         value = text,
