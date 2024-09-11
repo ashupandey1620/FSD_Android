@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -47,7 +48,7 @@ fun RegisterEmployee(navController: NavHostController) {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .background(background())
+            .background(MaterialTheme.colorScheme.background)
             .padding(25.dp)
             .verticalScroll(rememberScrollState()) ,
 
