@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,20 +31,20 @@ fun FolderClickItems() {
         .wrapContentHeight()
         .background(Color.White)){
 
-        BottomSheetOptions(R.drawable.folder2,"App Name") {}
+        BottomSheetOptions(R.drawable.folder2,"FSD") {}
         Divider()
-        BottomSheetOptions(R.drawable.folder2,"Manage Access") {}
-        BottomSheetOptions(R.drawable.folder2,"Add to Starred") {}
-        BottomSheetOptions(R.drawable.folder2,"Copy Link") {}
-        Divider()
-        BottomSheetOptions(R.drawable.folder2,"Rename") {}
-        Divider()
-        BottomSheetOptions(R.drawable.folder2,"Change Color") {}
-        BottomSheetOptions(R.drawable.folder2,"Add Shortcut to Drive") {}
-        BottomSheetOptions(R.drawable.folder2,"Move") {}
-        BottomSheetOptions(R.drawable.folder2,"Details and Activity") {}
-        BottomSheetOptions(R.drawable.folder2,"Add to Home Screen") {}
-        BottomSheetOptions(R.drawable.folder2,"Remove") {}
+        BottomSheetOptions(R.drawable.add_group,"Manage Access") {}
+        BottomSheetOptions(R.drawable.star,"Add to Starred") {}
+        BottomSheetOptions(R.drawable.link,"Copy Link") {}
+        Divider(thickness = 0.5.dp)
+        BottomSheetOptions(R.drawable.editing,"Rename") {}
+        Divider(thickness = 0.5.dp)
+        BottomSheetOptions(R.drawable.palette,"Change Color") {}
+        BottomSheetOptions(R.drawable.send,"Move") {}
+        BottomSheetOptions(R.drawable.info,"Details and Activity") {}
+        BottomSheetOptions(R.drawable.recent,"Add to Home Screen") {}
+        BottomSheetOptions(R.drawable.delete,"Remove") {}
+        Spacer(modifier = Modifier.padding(20.dp))
 
     }
 }
@@ -57,9 +59,9 @@ fun BottomSheetOptions(icon: Int , str: String , onClick: () -> Unit) {
 
         Icon(
             modifier = Modifier
-                .padding(horizontal = 10.dp)
+                .padding(horizontal = 17.dp)
                 .padding(vertical = 5.dp)
-                .size(30.dp)
+                .size(25.dp)
                 .clickable {
 
                 },
@@ -72,7 +74,8 @@ fun BottomSheetOptions(icon: Int , str: String , onClick: () -> Unit) {
             fontSize = 18.sp ,
             maxLines = 1 ,
             softWrap = true ,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
+            fontWeight = FontWeight.Light
         )
 
 

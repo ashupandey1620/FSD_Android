@@ -3,6 +3,7 @@ package com.ashutosh.fsd.ui.theme.Component.BottomSheets
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -26,8 +27,8 @@ fun BottomSheetSortingList(onDismiss: () -> Unit , modalBottomSheetState: SheetS
                            },
         sheetState = modalBottomSheetState,
         dragHandle = { BottomSheetDefaults.DragHandle() },
-        containerColor = Color.White,
-        scrimColor = Color.Transparent
+        containerColor = MaterialTheme.colorScheme.background,
+        scrimColor = Color.White
     ) {
         FolderClickItems()
     }
