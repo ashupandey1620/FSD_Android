@@ -27,8 +27,8 @@ fun BottomSheetSortingList(onDismiss: () -> Unit , modalBottomSheetState: SheetS
                            },
         sheetState = modalBottomSheetState,
         dragHandle = { BottomSheetDefaults.DragHandle() },
-        containerColor = MaterialTheme.colorScheme.background,
-        scrimColor = Color.White
+        containerColor = MaterialTheme.colorScheme.secondary,
+        scrimColor = Color.Transparent
     ) {
         FolderClickItems()
     }

@@ -29,7 +29,7 @@ fun FolderClickItems() {
     Column(modifier = Modifier
         .fillMaxWidth()
         .wrapContentHeight()
-        .background(Color.White)){
+        ){
 
         BottomSheetOptions(R.drawable.folder2,"FSD") {}
         Divider()
@@ -53,6 +53,7 @@ fun FolderClickItems() {
 fun BottomSheetOptions(icon: Int , str: String , onClick: () -> Unit) {
     Row(modifier = Modifier
         .fillMaxWidth()
+        .clickable { onClick() }
         .padding(10.dp)
         , verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start){
@@ -66,11 +67,11 @@ fun BottomSheetOptions(icon: Int , str: String , onClick: () -> Unit) {
 
                 },
             painter = painterResource(id = icon), contentDescription = "icon",
-            tint = Color.DarkGray)
+            tint = Color.Gray)
 
         Text(
             text = str ,
-            color = Color.DarkGray ,
+            color = Color.White ,
             fontSize = 18.sp ,
             maxLines = 1 ,
             softWrap = true ,
